@@ -7,6 +7,7 @@ import (
 )
 
 const (
+	doHostnameURL                  = "http://169.254.169.254/metadata/v1/hostname"
 	doPrivateIPv4URL               = "http://169.254.169.254/metadata/v1/interfaces/private/0/ipv4/address"
 	doPublicIPv4URL                = "http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address"
 	doFloatingPublicIPv4EnabledURL = "http://169.254.169.254/metadata/v1/floating_ip/ipv4/active"
@@ -17,10 +18,15 @@ const (
 // NewDigitalOceanDiscoverer returns a new Digital Ocean network discoverer
 func NewDigitalOceanDiscoverer() Discoverer {
 	return NewDiscoverer(
+		PublicHostnameDiscovererOption(doHostname),
 		PublicIPv4DiscovererOption(doPublicIPv4),
 		PublicIPv6DiscovererOption(doPublicIPv6),
 	)
 
+}
+
+func doHostname() (string, error) {
+	return StandardHostnameFromHTTP(doHostnameURL, nil)
 }
 
 // FIXME:  this URL never seems to be populated

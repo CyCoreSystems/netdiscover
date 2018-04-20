@@ -41,6 +41,11 @@ Currently, this tool supports four network data fields:
   * `publicv4`: the public (external) IPv4 address of the node
   * `publicv6`: the public (external) IPv6 address of the node
 
+Note that for DigitalOcean\'s hostname feature to work as expected, you need to
+change the Droplet name to the fully-qualified domain name of the host.  Doing
+so will also cause DigitalOcean to register the reverse DNS lookup for the
+Droplet\'s IP address, so this should generally be done, anyway.
+
 
 ## Examples
 
