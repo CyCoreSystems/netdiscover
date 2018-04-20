@@ -38,6 +38,10 @@ type Response struct {
 }
 
 func main() {
+	if os.Getenv("CLOUD_PROVIDER") != "" {
+		provider = os.Getenv("CLOUD_PROVIDER")
+	}
+
 	flag.Parse()
 
 	var discoverer discover.Discoverer
