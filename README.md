@@ -21,11 +21,14 @@ information.  There are two options:
 
 ## Supported providers
 
-Currently, this tool supports three cloud providers:
+Currently, this tool supports four cloud providers:
 
   * `aws`: Amazon Web Services
   * `azure`: Microsoft Azure Cloud
+  * `do`: Digital Ocean
   * `gcp`: Google Cloud Platform
+
+Not all providers support all network details.
 
 I am happy to accept pull requests to implement more providers.
 

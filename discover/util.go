@@ -17,7 +17,7 @@ func ParseIPv4FromBody(in io.Reader) (net.IP, error) {
 		return nil, fmt.Errorf("failed to read response: %v", err)
 	}
 
-	if len(data) < 8 || len(data) > 18 {
+	if len(data) < 8 || len(data) > 42 {
 		return nil, fmt.Errorf("invalid response: %s", string(data))
 	}
 

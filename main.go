@@ -18,7 +18,7 @@ var (
 
 func init() {
 	flag.BoolVar(&debug, "debug", false, `debug mode`)
-	flag.StringVar(&provider, "provider", "", `provider type.  Options are: "aws", "azure", "gcp"`)
+	flag.StringVar(&provider, "provider", "", `provider type.  Options are: "aws", "azure", "do", gcp"`)
 	flag.StringVar(&retField, "field", "", `return only a single field.  Options are: "hostname", "publicv4", publicv6", "privatev4"`)
 }
 
@@ -50,6 +50,8 @@ func main() {
 		discoverer = discover.NewAWSDiscoverer()
 	case "azure":
 		discoverer = discover.NewAzureDiscoverer()
+	case "do":
+		discoverer = discover.NewDigitalOceanDiscoverer()
 	case "gcp":
 		discoverer = discover.NewGCPDiscoverer()
 	default:
