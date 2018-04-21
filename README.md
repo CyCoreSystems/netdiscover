@@ -1,7 +1,7 @@
 # Netdiscover
 [![](https://godoc.org/github.com/CyCoreSystems/netdiscover/discover?status.svg)](http://godoc.org/github.com/CyCoreSystems/netdiscover/discover)
 
-Netdiscover is a Golang-based tool and library by which network information can
+Netdiscover is a CLI tool and Golang library by which network information may
 be discovered on various cloud platforms and bare metal installations.  The
 typical use case is, when running inside Kubernetes or a container, to discover
 the public IP and/or hostname of the node on which the container is running.
@@ -55,7 +55,7 @@ Retrieve the public version 4 IP address of the node instance on GCP:
   netdiscover -provider gcp -field publicv4
 ```
 
-Retrieve all network information on Amazon Wed Services platform:
+Retrieve all network information on Amazon Web Services platform:
 
 ```
   netdiscover -provider aws
