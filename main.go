@@ -37,6 +37,7 @@ type Response struct {
 	PublicIPv6 string `json:"public_ipv6"`
 }
 
+// nolint: gocyclo
 func main() {
 	if os.Getenv("CLOUD_PROVIDER") != "" {
 		provider = os.Getenv("CLOUD_PROVIDER")

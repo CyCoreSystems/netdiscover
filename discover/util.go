@@ -45,7 +45,7 @@ func StandardIPFromHTTP(url string, headers map[string]string) (net.IP, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() // nolint: errcheck
 
 	if resp.StatusCode < 200 || resp.StatusCode > 299 {
 		return nil, fmt.Errorf("non-2XX response: (%d) %s", resp.StatusCode, resp.Status)
@@ -70,7 +70,7 @@ func StandardHostnameFromHTTP(url string, headers map[string]string) (string, er
 	if err != nil {
 		return "", err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() // nolint: errcheck
 
 	if resp.StatusCode < 200 || resp.StatusCode > 299 {
 		return "", fmt.Errorf("non-2XX response: (%d) %s", resp.StatusCode, resp.Status)

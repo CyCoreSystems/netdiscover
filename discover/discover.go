@@ -155,7 +155,7 @@ func defaultPublicIPv4() (net.IP, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() // nolint: errcheck
 
 	dec := json.NewDecoder(resp.Body)
 
@@ -182,7 +182,7 @@ func defaultPublicIPv6() (net.IP, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() // nolint: errcheck
 
 	dec := json.NewDecoder(resp.Body)
 
