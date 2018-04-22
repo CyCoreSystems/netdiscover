@@ -1,5 +1,5 @@
 # Netdiscover
-[![](https://godoc.org/github.com/CyCoreSystems/netdiscover/discover?status.svg)](http://godoc.org/github.com/CyCoreSystems/netdiscover/discover)
+[![Build Status](https://travis-ci.org/CyCoreSystems/netdiscover.png)](https://travis-ci.org/CyCoreSystems/netdiscover) [![](https://godoc.org/github.com/CyCoreSystems/netdiscover/discover?status.svg)](http://godoc.org/github.com/CyCoreSystems/netdiscover/discover)
 
 Netdiscover is a CLI tool and Golang library by which network information may
 be discovered on various cloud platforms and bare metal installations.  The
