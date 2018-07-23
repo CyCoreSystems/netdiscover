@@ -207,6 +207,7 @@ func defaultPublicIPv6() (net.IP, error) {
 	return ip, nil
 }
 
+// nolint: gocyclo
 func defaultPrivateIPv4() (net.IP, error) {
 	netifs, err := net.Interfaces()
 	if err != nil {
@@ -214,6 +215,12 @@ func defaultPrivateIPv4() (net.IP, error) {
 	}
 
 	for _, i := range netifs {
+
+		// Skip docker interfaces
+		if strings.HasPrefix(i.Name, "docker") {
+			continue
+		}
+
 		addresses, err := i.Addrs()
 		if err != nil {
 			continue // next interface
