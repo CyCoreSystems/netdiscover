@@ -1,17 +1,18 @@
 project_name: Network Discovery tool
 builds:
-   - env:
-        - CGO_ENABLED=0
-     goos:
-        - linux
-        - darwin
-        - windows
-     goarch:
-        - amd64
+  - binary: netdiscover
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
 
 archive:
-   format: binary
-   name_template: "{{ .Binary }}.{{ .Os }}.{{ .Arch }}"
+  format: binary
+  name_template: "{{ .Binary }}.{{ .Os }}.{{ .Arch }}"
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -20,14 +21,13 @@ changelog:
   sort: asc
   filters:
     exclude:
-       - '^docs:'
-       - '^doc:'
-       - '^test:'
+      - '^docs:'
+      - '^doc:'
+      - '^test:'
 
 dockers:
-   - image: cycoresystems/netdiscover
-     tag_templates:
-        - "{{ .Tag }}"
-        - "v{{ .Major }}"
-        - "v{{ .Major }}.{{ .Minor }}"
-        - latest
+  - image_templates:
+    - "cycoresystems/netdiscover:{{ .Tag }}"
+    - "cycoresystems/netdiscover:v{{ .Major }}"
+    - "cycoresystems/netdiscover:v{{ .Major }}.{{ .Minor }}"
+    - "cycoresystems/netdiscover:latest"

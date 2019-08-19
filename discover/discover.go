@@ -190,9 +190,6 @@ func defaultPublicIPv6() (net.IP, error) {
 		Address string `json:"address"`
 	}
 	data := new(response)
-	if err != nil {
-		return nil, fmt.Errorf("failed to parse response: %v", err)
-	}
 
 	err = dec.Decode(data)
 	if err != nil {

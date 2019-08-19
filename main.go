@@ -64,38 +64,33 @@ func main() {
 		case "hostname":
 			h, err := discoverer.Hostname()
 			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
+				log.Fatal(err)
 			}
 			fmt.Println(h)
 			os.Exit(0)
 		case "privatev4":
 			ip, err := discoverer.PrivateIPv4()
 			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
+				log.Fatal(err)
 			}
 			fmt.Println(ip.String())
 			os.Exit(0)
 		case "publicv4":
 			ip, err := discoverer.PublicIPv4()
 			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
+				log.Fatal(err)
 			}
 			fmt.Println(ip.String())
 			os.Exit(0)
 		case "publicv6":
 			ip, err := discoverer.PublicIPv6()
 			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
+				log.Fatal(err)
 			}
 			fmt.Println(ip.String())
 			os.Exit(0)
 		default:
-			fmt.Println("valid fields are: hostname, privatev4, publicv4, publicv6")
-			os.Exit(1)
+			log.Fatal("valid fields are: hostname, privatev4, publicv4, publicv6")
 		}
 	}
 
@@ -131,7 +126,6 @@ func main() {
 	enc := json.NewEncoder(os.Stdout)
 
 	if err := enc.Encode(ret); err != nil {
-		fmt.Printf("failed to encode response: %+v\n", ret)
-		os.Exit(1)
+		log.Fatal("failed to encode response:", ret)
 	}
 }
