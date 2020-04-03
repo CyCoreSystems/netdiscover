@@ -27,8 +27,11 @@ Currently, this tool supports four cloud providers:
   * `azure`: Microsoft Azure Cloud
   * `do`: Digital Ocean
   * `gcp`: Google Cloud Platform
+  * ``: general discovery (baremetal)
 
-Not all providers support all network details.
+Not all providers support all network details.  General discovery should be used
+for baremetal or other unsupported environments.  It will use the public service
+(jsonip.io) to determine the necessary network data.
 
 I am happy to accept pull requests to implement more providers.
 
