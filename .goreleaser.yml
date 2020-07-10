@@ -10,9 +10,10 @@ builds:
     goarch:
       - amd64
 
-archive:
-  format: binary
-  name_template: "{{ .Binary }}.{{ .Os }}.{{ .Arch }}"
+archives:
+   - id: netdiscover
+     format: binary
+     name_template: "{{ .Binary }}.{{ .Os }}.{{ .Arch }}"
 checksum:
   name_template: 'checksums.txt'
 snapshot:
