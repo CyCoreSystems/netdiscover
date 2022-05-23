@@ -27,6 +27,7 @@ Currently, this tool supports four cloud providers:
   * `azure`: Microsoft Azure Cloud
   * `do`: Digital Ocean
   * `gcp`: Google Cloud Platform
+  * `aliyun`: Alibaba Cloud
   * ``: general discovery (baremetal)
 
 Not all providers support all network details.  General discovery should be used
